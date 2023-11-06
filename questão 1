@@ -1,0 +1,30 @@
+#include <stdio.h>
+
+int somaVetores(int valores[], int tamanho) {
+    while (tamanho > 1) {
+        for (int i = 0; i < tamanho - 1; i++) {
+            valores[i] += valores[i + 1];
+            printf("%d%s", valores[i], i < tamanho - 2 ? " " : "\n");
+        }
+        tamanho--;
+    }
+    return valores[0];
+}
+
+int main() {
+    int conjuntodevalores[10];
+    int elementos = 10;
+
+    for (int i = 0; i < elementos; i++) {
+        scanf("%d", &conjuntodevalores[i]);
+    }
+
+    for (int i = 0; i < elementos; i++) {
+        printf("%d%s", conjuntodevalores[i], i < elementos - 1 ? " " : "\n");
+    }
+
+    int resultado_final = somaVetores(conjuntodevalores, elementos);
+    printf("Resultado Final: %d\n", resultado_final);
+
+    return 0;
+}
